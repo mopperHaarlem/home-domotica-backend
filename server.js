@@ -1,24 +1,34 @@
-var app = require('http').createServer(handler),
+
+var 
+    // requirementw
+    app = require('http').createServer(handler),
     io = require('socket.io').listen(app),
     fs = require('fs'),
     url = require('url'),
-    SerialPort = require('serialport');
-var serialport = require('serialport'); // include the library
-SerialPort = serialport.SerialPort; // make a local instance of it
-var sp = new SerialPort("/dev/ttyUSB0", {
-    baudrate: 115200,
-    // look for return and newline at the end of each data packet:
-    parser: serialport.parsers.readline("\n")
-});
-// this var will contain the message string dispatched by arduino
-arduinoMessage = '',
+    serialport = require('serialport'), 
+   
+    // this var will contain the message string
+    // dispatched by arduino 
+    arduinoMessage = '',
     usbMessage = '',
+  
+    //create serialport instance 
+    //wich will look for newline at the end of each data packet:
+    SerialPort = serialport.SerialPort; 
+    sp = new SerialPort("/dev/ttyUSB0", {
+        baudrate: 115200,   
+        parser: serialport.parsers.readline("\n")
+    }),
+
+
+
     /**
      * helper function to load any app file required by client.html
      * @param  { String } pathname: path of the file requested to the nodejs server
      * @param  { Object } res: http://nodejs.org/api/http.html#http_class_http_serverresponse
      */
     readFile = function(pathname, res) {
+        console.log('readFile is called',pathname+'_'+res)
         // an empty path returns client.html
         if (pathname === '/') pathname = 'client.html';
         fs.readFile('client/' + pathname, function(err, data) {
@@ -85,5 +95,6 @@ sp.on('open', function() {
 app.listen(8000);
 // server handler
 function handler(req, res) {
-    readFile(url.parse(req.url).pathname, res);
+    console.log('handler... can...keep asking');
+    //readFile(url.parse(req.url).pathname, res);
 }
