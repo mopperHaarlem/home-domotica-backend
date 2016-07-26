@@ -4,14 +4,15 @@ nodejs backend wich communicates with arduino and passes messages to and from th
 **startup with**#
    node server.js
    
-** install pm2 to use as service **#
+**install pm2 to use as service**#
    sudo npm install -g pm2
 
-** start as service **#
+**start as service **#
    pm2 start server.js
 
-** stop / list as service **
-   # pm2 stop server.js
+**stop / list as service**
+
+   #pm2 stop server.js
    
-   # pm2 start list
+   #pm2 start list
    
