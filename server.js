@@ -30,6 +30,7 @@ var
     readFile = function(pathname, res) {
         console.log('readFile is called',pathname+'_'+res)
         // an empty path returns client.html
+        /*
         if (pathname === '/') pathname = 'client.html';
         fs.readFile('client/' + pathname, function(err, data) {
             if (err) {
@@ -40,6 +41,7 @@ var
             res.writeHead(200);
             res.end(data);
         });
+        */
     },
     /**
      *
