@@ -14,3 +14,4 @@ nodejs backend wich communicates with arduino and passes messages to and from th
    #pm2 stop server.js
    #pm2 start list
    
+/home/pi/nodejsdata/home-domotica-backend
